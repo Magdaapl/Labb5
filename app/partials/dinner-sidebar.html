@@ -1,0 +1,67 @@
+ 
+<!-- TODO in Lab 5: Display the items on the menu with cost for each -->
+
+
+<!-- Displaying number of guests both in input box and here is redundant. It is here only for the example
+purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace 
+this with Total price of the menu 
+Total number of guest: {{getNumberOfGuests()}}-->
+
+<div class="col-md-3" id="View2">
+	<div class="container-fluid">
+			<div class="guest">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>My dinner</h3>
+					</div>
+				</div>
+
+				People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
+ 
+			</div>
+
+			<div class="dishcost">
+				<div  class="row">
+					<div class="col-md-5">
+						<h4>Dish Name</h4>
+					</div>
+					<div class="col-md-7">
+						<h4>Cost</h4>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="pending">
+				<div id="menu">
+				<div class="row" ng-repeat="item in menu()">
+					<div class="col-md-5">
+						<p>{{item.title}}</p> 
+					</div>
+					<div class="col-md-5">
+						<p>{{dishPrice(item)}}</p>
+					</div>
+					<div class="col-md-2">
+					</div>
+				</div>
+				</div>
+			<div class="row">
+				<div class="line"> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-5"></div>
+				<div class="col-md-7">
+					<p> {{totalMenuPrice()}} SEK</p>
+				</div>
+			</div>
+			</div>
+
+			<div class="confirm">
+				<div class="row">
+						<a href="#!/showDinner" type="submit" class="btn btn-info">Confirm dinner</a>
+				</div>
+			</div>
+
+		</div>
+
+</div>

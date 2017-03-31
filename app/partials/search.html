@@ -1,0 +1,60 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+<ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>
+<!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
+not support it in free version) and list all the dishes that match the search. -->
+
+
+
+<div class="col-md-9" id="View3">
+    <div class= "title">
+        <div class ="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>SELECT DISH </h1> 
+                </div>
+            </div>
+        </div>
+        <div class= "search">
+            <div class ="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <form class="form" id= "newSearch"> 
+                            <input ng-model="query" type="text" size="12" maxlength="200" placeholder="Enter key words"> 
+                            </input> 
+                              <button ng-click ="search(query,type)" value="Search" class="btn btn-info">Search
+                            </button>  
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="type" ng-change="search(query, type)">
+
+                            <option value='none'>Chose Course: </option>
+
+                            <option value='main dish'>Main dish</option>
+
+                            <option value='dessert'> Dessert </option>
+
+                            <option value='starter'>Starter</option>
+
+                        </select>
+                    </div>            
+                </div>
+            </div>
+        </div>  
+    </div>
+
+
+        <h2>Gallery</h2>
+            <div id="dishgalery">
+                {{status}}
+                <div class="img" ng-repeat="item in dishes">
+                        <a ng-href="#!/dish/{{item.id}}">
+                            <img ng-src="https://spoonacular.com/recipeImages/{{item.image}}" alt="picture" width="300" height="200">
+                            {{item.title}}
+                        </a>
+                </div>
+            </div>
+
+
+
+</div>

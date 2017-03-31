@@ -1,0 +1,61 @@
+ <!-- We include the sidebar as it is shared across two screens. -->
+<ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>
+
+<!-- TODO in Lab 5: Display the dish information including image, Description, 
+Instructions, Ingredients and total cost. -->
+
+
+<div id="View4">
+    <div class="container-fluid">
+        <div class="col-md-3"></div>
+        <div class="col-md-9"> 
+            <div class="row">
+                <div class="dish">
+                  <div class="col-md-5">
+                      {{status}}
+                    <h3>{{dish.title}}</h3>
+                    <img src="{{dish.image}}" width="200" height="200" />
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                      ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                      dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                      nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                      Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In
+                      enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
+                      felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                      elementum semper nisi.</p>
+                    <div class="row">
+                      <button ng-click="goBack()" class="btn btn-info">back to Dish gallery</button>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="col-md-4">
+                    <h3>Ingredients for {{numberofguests()}} people</h3>
+                    <table ng-repeat="item in dish.extendedIngredients" class="table"> To purchase:
+                      <tr>
+                        <td>
+                          {{item.amount * numberofguests()}}
+                        </td>
+                        <td>
+                          {{item.name}}
+                        </td>
+                        <td>
+                          {{item.amount * numberofguests()}} SEK
+                        </td>
+                      </tr>
+                    </table>
+                    
+                      <button ng-click ="confirm(dish)" class="btn btn-info">Confirm dish</button>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                <h3>Preparation</h3>
+                {{dish.instructions}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
